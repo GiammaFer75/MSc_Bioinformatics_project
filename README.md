@@ -13,11 +13,9 @@ Dowload the in the folder Proteogenome.py and the contend of TestFiles folder.
 
     # Define the set of columns names in the csv input file, that match the required data for Proteogenome.
 
-	csv_cols = ['protein.Accession','peptide.seq','peptide.modification',
-            'peptide.MatchedProducts','peptide.MatchedProductsSumInten']
+	csv_cols = ['protein.Accession','peptide.seq','peptide.modification', 'peptide.MatchedProducts','peptide.MatchedProductsSumInten']
 
-    proteome = pg.load_proteomic_data('proteome_test.csv',
-                                   target_cols=csv_cols,reshape=True)
+    proteome = pg.load_proteomic_data('proteome_test.csv', target_cols=csv_cols,reshape=True)
 
 **1.2	Apply the PTMs to the peptide sequences**
 
@@ -92,6 +90,30 @@ Now it is possible to try to recover the protein codes that did not found a matc
 	pg.proteome_Hmap_BED(prot_tab,exon_tab, protein_hm_filename, log_transf='2', rev_col_gradient=False)
 
              
+## 3.	Generate peptide map with PoGo and Proteogenome
+**3.1	Mapping the peptides and PTMs with PoGo**
+In this step use the two PoGo file provided **PoGo_peptides.bed** and **PoGo_peptides_PTM.bed** or refer to [PoGo documentation]https://github.com/cschlaffner/PoGo
+
+**3.2 	Upload the peptide and PTM maps**
+
+		PoGo_BED_filename = 'PoGo_peptides.bed'
+
+		PoGo_bed = pg.up_PoGo_bed(PoGo_BED_filename)
+
+		PoGoPTM_BED_filename = 'PoGo_peptides_PTM.bed'
+
+		PoGoPTM_bed = pg.up_PoGo_bed(PoGoPTM_BED_filename)
+
+
+**3.3	Filter PoGo BED files with Proteogenome**
+
+	peptides_filtered_filename = destpath + 'peptides_filtered.bed'
+
+	prot, pepfiltered = pg.filter_PoGo_BED(PoGo_bed, prot_tab, exon_tab, peptides_filtered_filename, progbar=True)
+
+	PTM_filtered_filename = destpath + 'PTM_filtered.bed'
+
+	protPTM, PTMfiltered = pg.filter_PoGo_BED(PoGoPTM_bed, prot_tab, exon_tab, PTM_filtered_filename, progbar=True)
 
 
 
