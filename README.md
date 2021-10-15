@@ -2,9 +2,10 @@
 This repository contains the Python module Proteogenome and a folder with proteomics data. 
 
 #### Folder TestFiles:
+- **proteome_test.csv**      :  This file contains a table in a PLGS format with peptides data from MS/MS analysis. 
 - **PoGo_peptides.bed**      :  the peptide map performed by PoGo
 - **PoGo_peptides_PTM.bed**  :  the map of PTMs performed by PoGo
-- **proteome_test.csv**      :  This file contains a table in a PLGS format with peptides data from MS/MS analysis. 
+
 
 These data are provided in order to test Proteogenome.
 
@@ -23,18 +24,18 @@ At the end of the simulation,  in the working folder will be present this group 
 └── Working folder
          ---------------------------------INPUT FILES
         ├── Proteogenome.py
-		├── proteome_test.csv
+        ├── proteome_test.csv
         ├── PoGo_peptides.bed
         ├── PoGo_peptides_PTM.bed
-		 ---------------------------------DATA MANIPULATION FILES
+         ---------------------------------DATA MANIPULATION FILES
         ├── PoGo_input_file.txt
         ├── protein_M1.txt
         ├── p_notfound.txt
         ├── p_recovered.txt
-		 ---------------------------------OUTPUT FILES
-		├── protein_heat_map.bed
+         ---------------------------------OUTPUT FILES
+        ├── protein_heat_map.bed
         ├── peptides_filtered.bed
-		└── PTM_filtered.bed
+        └── PTM_filtered.bed
 ```
 
 ## 1. Prepare input data
