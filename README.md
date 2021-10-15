@@ -1,12 +1,18 @@
 # MSc Bioinformatics with Systems Biology
 This repository contains the Python module Proteogenome and a folder with proteomics data. 
+
+#### Folder TestFiles:
+- **PoGo_peptides.bed**      :  This file contains the peptide map performed by PoGo
+- **PoGo_peptides_PTM.bed**  :  This file contains the map of peptide PTMs performed by PoGo
+- **proteome_test.csv**      :  This file contains a PLGS table with peptides data from MS/MS analysis
+
 These data are provided in order to test Proteogenome.
 
 
 ## Run the simulation
 In order to run the simulation, create a woring folder.
 
-Dowload the in the folder Proteogenome.py and the contend of TestFiles folder. 
+Copy in the folder Proteogenome.py and the contend of TestFiles folder. 
 
 ## 1. Prepare input data
 **1.1 Upload proteomics data**
@@ -96,28 +102,24 @@ In this step use the two PoGo file provided **PoGo_peptides.bed** and **PoGo_pep
 
 **3.2 	Upload the peptide and PTM maps**
 
-		PoGo_BED_filename = 'PoGo_peptides.bed'
+	PoGo_BED_filename = 'PoGo_peptides.bed'
 
-		PoGo_bed = pg.up_PoGo_bed(PoGo_BED_filename)
+	PoGo_bed = pg.up_PoGo_bed(PoGo_BED_filename)
 
-		PoGoPTM_BED_filename = 'PoGo_peptides_PTM.bed'
+	PoGoPTM_BED_filename = 'PoGo_peptides_PTM.bed'
 
-		PoGoPTM_bed = pg.up_PoGo_bed(PoGoPTM_BED_filename)
+	PoGoPTM_bed = pg.up_PoGo_bed(PoGoPTM_BED_filename)
 
 
 **3.3	Filter PoGo BED files with Proteogenome**
 
-	peptides_filtered_filename = destpath + 'peptides_filtered.bed'
+	peptides_filtered_filename = 'peptides_filtered.bed'
 
 	prot, pepfiltered = pg.filter_PoGo_BED(PoGo_bed, prot_tab, exon_tab, peptides_filtered_filename, progbar=True)
 
-	PTM_filtered_filename = destpath + 'PTM_filtered.bed'
+	PTM_filtered_filename = 'PTM_filtered.bed'
 
 	protPTM, PTMfiltered = pg.filter_PoGo_BED(PoGoPTM_bed, prot_tab, exon_tab, PTM_filtered_filename, progbar=True)
 
 
 
-#### Folder TestFiles:
-- **PoGo_peptides.bed**      :  This file contains the peptide map performed by PoGo
-- **PoGo_peptides_PTM.bed**  :  This file contains the map of peptide PTMs performed by PoGo
-- **proteome_test.csv**      :  This file contains a PLGS table with peptides data from MS/MS analysis
