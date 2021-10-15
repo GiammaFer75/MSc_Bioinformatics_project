@@ -58,11 +58,11 @@ Now it is possible to try to recover the protein codes that did not found a matc
     M_expr,M_pept = pg.generate_prot_expr_pept_dict(mismatch_protein)
 
 
-**METHOD 2 - *Convert the UniProt codes in Ensembl codes - Retrieve / ID map service***
+<p align="center"><strong>METHOD 2 - <em>Convert the UniProt codes in Ensembl codes - Retrieve / ID map service</em></strong></p>
 
     M_expr,M_pept = pg.UP2Ens_code_conv(M_expr, M_pept, db_type='IDmap', print_out=True)
 
-**METHOD 3 - *Convert the UniProt codes in Ensembl codes - UniParc service***
+<p align="center"><strong>METHOD 3 - <em>Convert the UniProt codes in Ensembl codes - UniParc service</em></strong></p>
 
 	M_expr,M_pept = pg.UP2Ens_code_conv(M_expr, M_pept, db_type='UniParc', print_out=True)
 
