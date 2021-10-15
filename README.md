@@ -1,13 +1,4 @@
 # MSc Bioinformatics with Systems Biology
-This repository contains the Python module Proteogenome and a folder with proteomics data. 
-
-#### Folder TestFiles:
-- **proteome_test.csv**      :  This file contains a table in a PLGS format with peptides data from MS/MS analysis. 
-- **PoGo_peptides.bed**      :  the peptide map performed by PoGo
-- **PoGo_peptides_PTM.bed**  :  the map of PTMs performed by PoGo
-
-
-These data are provided in order to test Proteogenome.
 
 
 ## Proteogenome Workflow
@@ -19,13 +10,24 @@ The schema of our visualization workflow could be divided in four main steps.
 - Red area: input data
 - Green area: mapping the peptides with PoGo 
 - Purple area: prepare the tracks (using the genomic coordinates) 
-- Orange area: visualize the tracks. 
+- Orange area: visualize the tracks.
+ 
 In the dashed boxes are indicated the sources that provide information or the tools that manipulate the data along the process. In the solid boxes are represented the main operations necessary to accomplish the mapping and visualization task. Some tools collect and process external data, like PoGo and Proteogenome. For instance, PoGo needs proteins sequence and annotations in FASTA and GTF format. However, this data must be provided by the user, fore instance, from the Ensembl database (dashed black box for GRCh38). Instead, Proteogenome access to the proteins database (dashed azure box) collecting the genomic coordinates only for the proteins identified in the MS/MS analysis (upper solid red box). For this reason, although the “Protein Database” is an external data source, it is enclosed in the Proteogenome box because accessed by the tool itself. Moreover, Proteogenome is involved in data preparation for PoGo. The purple dashed box that surround the ‘Peptide Identification’ highlights the manipulation of proteomics data table in order to obtain a proper txt input file for the PoGo sotware.
 The two purple arrows from Proteogenome box represent the generation of the two tracks containing proteins and peptides maps. Therefore, it is possible to identify two main pathways in this wokflow. The upper way for the proteins map and the lower for the peptides map. However, the peptides map is dependent on the protein map. Indeed, it is necessary to fetch the protein genomic coordinates in order to refine the PoGo track.
 
 
 
 ## Run the simulation
+This repository contains the Python module Proteogenome and the TestFile folder with proteomics data. 
+
+#### Folder TestFiles:
+- **proteome_test.csv**      :  This file contains a table in a PLGS format with peptides data from MS/MS analysis. 
+- **PoGo_peptides.bed**      :  the peptide map performed by PoGo
+- **PoGo_peptides_PTM.bed**  :  the map of PTMs performed by PoGo
+
+
+These data are provided in order to test Proteogenome.
+
 In order to run the simulation:
 	- create a working folder.
 	- copy in the folder the Proteogenome.py 
