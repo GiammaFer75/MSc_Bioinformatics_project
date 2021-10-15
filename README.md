@@ -122,6 +122,7 @@ Now it is possible to try to recover the protein codes that did not found a matc
              
 ## 3.	Generate peptide map with PoGo and Proteogenome
 **3.1	Mapping the peptides and PTMs with PoGo**
+
 In this step use the two PoGo file provided **PoGo_peptides.bed** and **PoGo_peptides_PTM.bed** or refer to [PoGo documentation](https://github.com/cschlaffner/PoGo)
 
 **3.2 	Upload the peptide and PTM maps**
