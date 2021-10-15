@@ -8,7 +8,7 @@
 The module Proteogenome must be used in consideration of the workflow whereby it has been developed.
 The schema of our visualization workflow could be divided in four main steps. 
 - Red area: input data
-- Green area: mapping peptides with PoGo 
+- Green area: mapping peptides with PoGo [](https://github.com/cschlaffner/PoGo)
 - Purple area: prepare the map tracks using the genomic coordinates 
 - Orange area: visualize the tracks
 
