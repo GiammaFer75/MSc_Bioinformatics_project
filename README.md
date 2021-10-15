@@ -75,9 +75,9 @@ At the end of the simulation,  in the working folder will be present this group 
 **METHOD 1 - 3. Download the protein records**
      
     prot_raw_records,mismatch_protein = pg.download_proteins_set(prot_expre,prot_peptides, 
-                         db_type='UPKB', print_out=True,
-                         proteins_output       = p_1_filename, 
-                         error_proteins_output = p_M_filename)
+                                                                 db_type='UPKB', print_out=True,
+                                                                 proteins_output       = p_1_filename, 
+                                                                 error_proteins_output = p_M_filename)
 
 Now it is possible to try to recover the protein codes that did not found a match in the previous step. There are two METHODs that could be applied alternatively. The task include a conversion of UniProt codes in Ensembl codes. Then the UniProtKB database will be quired again with the Ensembl codes. The funtion used for this conversion is 'UP2Ens_code_conv'. Setting the parameter db_type='IDmap' will be used the API service for Retrieve / ID map for the conversion. Instead, setting the same parameter to 'UniParc', will be used the 'UniParc' API.
 
