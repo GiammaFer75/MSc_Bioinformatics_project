@@ -10,9 +10,32 @@ These data are provided in order to test Proteogenome.
 
 
 ## Run the simulation
-In order to run the simulation, create a woring folder.
+In order to run the simulation:
+	- create a working folder.
+	- copy in the folder the Proteogenome.py 
+	- copy in the folder the content of TestFiles folder. 
 
-Copy in the folder Proteogenome.py and the contend of TestFiles folder. 
+At the end of the simulation,  in the working folder will be present this group of files. The OUTPUT FILES represent the three maps for proteins, peptides and PTMs respectively.  
+
+
+```
+~  
+└── Working folder
+         ---------------------------------INPUT FILES
+        ├── Proteogenome.py
+		├── proteome_test.csv
+        ├── PoGo_peptides.bed
+        ├── PoGo_peptides_PTM.bed
+		 ---------------------------------DATA MANIPULATION FILES
+        ├── PoGo_input_file.txt
+        ├── protein_M1.txt
+        ├── p_notfound.txt
+        ├── p_recovered.txt
+		 ---------------------------------OUTPUT FILES
+		├── protein_heat_map.bed
+        ├── peptides_filtered.bed
+		└── PTM_filtered.bed
+```
 
 ## 1. Prepare input data
 **1.1 Upload proteomics data**
