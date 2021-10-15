@@ -51,18 +51,18 @@ Dowload the in the folder Proteogenome.py and the contend of TestFiles folder.
                          proteins_output       = p_1_filename, 
                          error_proteins_output = p_M_filename)
 
+Now it is possible to try to recover the protein codes that did not found a match in the previous step. There are two METHODs that could be applied alternatively. The task include a conversion of UniProt codes in Ensembl codes. Then the UniProtKB database will be quired again with the Ensembl codes. The funtion used for this conversion is 'UP2Ens_code_conv'. Setting the parameter db_type='IDmap' will be used the API service for Retrieve / ID map for the conversion. Instead, setting the same parameter to 'UniParc', will be used the 'UniParc' API.
+
 **METHOD 2/3 - 1. Create protein reference tables for level of expression and peptides**
      
     M_expr,M_pept = pg.generate_prot_expr_pept_dict(mismatch_protein)
 
 
-*Now it is possible to try to recover the protein codes that did not found a match in the previous step*
-
-**METHOD 2 - Convert the UniProt codes in Ensembl codes - Retrieve / ID map service**
+**METHOD 2 - *Convert the UniProt codes in Ensembl codes - Retrieve / ID map service***
 
     M_expr,M_pept = pg.UP2Ens_code_conv(M_expr, M_pept, db_type='IDmap', print_out=True)
 
-**METHOD 3 - Convert the UniProt codes in Ensembl codes - UniParc service**
+**METHOD 3 - *Convert the UniProt codes in Ensembl codes - UniParc service***
 
 	M_expr,M_pept = pg.UP2Ens_code_conv(M_expr, M_pept, db_type='UniParc', print_out=True)
 
