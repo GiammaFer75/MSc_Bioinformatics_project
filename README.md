@@ -59,7 +59,7 @@ At the end of the simulation,  in the working folder will be present this group 
 ## 1. Prepare input data
 **1.1 Upload proteomics data**
 
-    # Define the set of columns names in the csv input file, that match the required data for Proteogenome.
+    # Define the set of column names in the csv input file, that match the required data for Proteogenome.
 
 	csv_cols = ['protein.Accession','peptide.seq','peptide.modification', 'peptide.MatchedProducts','peptide.MatchedProductsSumInten']
 
@@ -67,13 +67,13 @@ At the end of the simulation,  in the working folder will be present this group 
 
 **1.2	Apply the PTMs to the peptide sequences**
 
-    remove_ PTMs = ['None','Carbamidomethyl']
+    remove_PTMs = ['None','Carbamidomethyl']
 
-    proteome_PTM = pg.PoGo_input_df(proteome, PTMs_to_remove = remove_ PTMs)
+    proteomePTM = pg.PoGo_input_df(proteome, PTMs_to_remove = remove_PTMs)
 
 **1.3	Generate the PoGo input file**
 
-    pg.PoGo_input_file('PoGo_input_file.txt',proteome_PTM,'Experiment_test')
+    pg.PoGo_input_file('PoGo_input_file.txt',proteomePTM,'Experiment_test')
 
 
 ## 2. Generate protein heat map
