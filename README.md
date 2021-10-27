@@ -159,10 +159,12 @@ In this step use the two PoGo file provided **PoGo_peptides.bed** and **PoGo_pep
 	peptides_filtered_filename = 'peptides_filtered.bed'
 
 	prot, pepfiltered = pg.filter_PoGo_BED(PoGo_bed, prot_tab, exon_tab, peptides_filtered_filename, progbar=True)
+    pg.make_tab_file(peptides_filtered_filename,pepfiltered)
 
 	PTM_filtered_filename = 'PTM_filtered.bed'
 
 	protPTM, PTMfiltered = pg.filter_PoGo_BED(PoGoPTM_bed, prot_tab, exon_tab, PTM_filtered_filename, progbar=True)
+    pg.make_tab_file(PTM_filtered_filename,PTMfiltered)
 
 
 
