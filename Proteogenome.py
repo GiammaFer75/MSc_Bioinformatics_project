@@ -914,7 +914,7 @@ def PoGo_input_file(filename, input_df, experiment, exclude_list=[], FileAppend=
             
     file_hand = open(filename, append_data)
 
-    input_df = input_df[['peptide.PTMupdated','peptide.PSMs','peptide.intensity']]
+    input_df = input_df[['peptide.seq','peptide.PSMs','peptide.intensity']]
     
     number_of_columns = len(input_df.columns)        # Fetch the dataframe number of columns 
     for ind1, row_df in input_df.iterrows():
@@ -1362,7 +1362,7 @@ def filter_PoGo_BED(PoGo_bed_df, protein_tab, exon_tab, PG_BED_filtered_filename
     """
     Version: 4.0
 
-    This function generates a bed file format that contains only peptides mapped by PoGo that mapp also in the PLGS proteins coordinates.
+    This function generates a bed file format that contains only peptides mapped by PoGo that map also in the PLGS proteins coordinates.
     Looping over PoGo dataframe every peptide coordinates span is compared against the dictionary of PLGS proteins coordinates.
     If the peptide coordinates are in one protein coordinates then the peptide is stored in the bed output file.
     
@@ -1428,37 +1428,20 @@ def filter_PoGo_BED(PoGo_bed_df, protein_tab, exon_tab, PG_BED_filtered_filename
                 prot_strand = '-'
             else:
                 prot_strand ='+'
-
-            
-                                                                                                                                                          
-            if (prot_start <= pep_start) & (prot_end >= pep_end) & (prot_record[0] == pep_coordinates[0]) & (prot_strand == pep_strand): #  Check if the peptide coordinates are included in the protein coordinates
-                
+                                                                                                                                                         
+            if (prot_start <= pep_start) & (prot_end >= pep_end) & (prot_record[0] == pep_coordinates[0]) & (prot_strand == pep_strand): #  Check if the peptide coordinates are included in the protein coordinates               
                 actual_prot_pep_link = [protein, pep_row[1][3], pep_coordinates[1], pep_coordinates[2]] # Create the connection between protein and its peptide. Example: ['A0A024R571', 'IPTAR', '951219', '951234']
                 
-                try: 
-                    if pep_row[1][3] in protein_peptide_dictionary[protein]:
-                        
-                        if actual_prot_pep_link not in prot_pep_link_complete:  # Check if the combination of protein and peptide with its coordinates has been already filtered
-                        
-                            if protein== target: print(protein,' - ', pep_row[1][3])
-                            if protein== target: print(protein_peptide_dictionary[protein])
-                            protein_peptide_dictionary[protein].remove(pep_row[1][3])
-                            if protein== target: print(protein_peptide_dictionary[protein])
-                            pep_filtered.append(list(pep_row[1]))               # If not store the peptide row in a list because this combination of protein and peptide has not yet been seen
-                            if pep_row[1][3] == target2: 
-                                print(pep_row[1],' for ',protein)
-                            prots.append(protein)
-                            prot_pep_link_complete.append(actual_prot_pep_link) # Put the combination protein-peptide-coordinates into the list of combinations already seen
-                            if protein== target: print('just append - ', actual_prot_pep_link)
-                            if protein== target: 
-                                print('prot_pep_link_complete for', protein)
-                                for i in prot_pep_link_complete:
-                                    if i[0] == target: print(i)                          
-                except: pass
+                if pep_row[1][3] in protein_peptide_dictionary[protein]:
 
-    for i in prot_pep_link_complete:
-        if i[0] == target: print(i)
+                    if actual_prot_pep_link not in prot_pep_link_complete:  # Check if the combination of protein and peptide with its coordinates has been already filtered
+                        protein_peptide_dictionary[protein].remove(pep_row[1][3])
+                        pep_filtered.append(list(pep_row[1]))               # If not store the peptide row in a list because this combination of protein and peptide has not yet been seen
+                        prots.append(protein)
+                        prot_pep_link_complete.append(actual_prot_pep_link) # Put the combination protein-peptide-coordinates into the list of combinations already seen
+
     return prots, pep_filtered        
+
 
 
 
