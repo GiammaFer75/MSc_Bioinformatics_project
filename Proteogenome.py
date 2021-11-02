@@ -1591,6 +1591,7 @@ def proteome_Hmap_BED(protein_tab, exon_tab, prot_hm_filename, log_transf='',
             # if coord1 < coord2: prot_chromStart = coord1   # Order the protein genomic coordinates in order to have always a positive strand
             # else: prot_chromStart = coord2
             
+            prot_chromStart = 0
             blockList = []
             first_exon = True
             for exon_ID, exon_details in exon_gen_loc_dict.items():  # From the exon dictionary take the coordiantes list of each exon
