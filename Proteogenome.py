@@ -1586,10 +1586,10 @@ def proteome_Hmap_BED(protein_tab, exon_tab, prot_hm_filename, log_transf='',
 
             itemRgb = protein_record[7]        # Extract the protein expression level in RGB format
             
-            coord1 = int(protein_record[1])    # Extract the protein genomic coordinates
-            coord2 = int(protein_record[2])
-            if coord1 < coord2: prot_chromStart = coord1   # Order the protein genomic coordinates in order to have always a positive strand
-            else: prot_chromStart = coord2
+            # coord1 = int(protein_record[1])    # Extract the protein genomic coordinates
+            # coord2 = int(protein_record[2])
+            # if coord1 < coord2: prot_chromStart = coord1   # Order the protein genomic coordinates in order to have always a positive strand
+            # else: prot_chromStart = coord2
             
             blockList = []
             first_exon = True
@@ -1612,6 +1612,7 @@ def proteome_Hmap_BED(protein_tab, exon_tab, prot_hm_filename, log_transf='',
                     if inserted: blockList.insert(exon_ind,exon_to_insert) # If the new exon is to insert, then use the index saved before to insert  
                     if not inserted: blockList.append(exon_to_insert)      # If the for loop finished and no one exon is located forward the new exon, then append the new exon
             
+                if prot_chromStart > min(exon_to_insert): prot_chromStart = min(exon_to_insert)
 
             blockCount = len(blockList)
 
