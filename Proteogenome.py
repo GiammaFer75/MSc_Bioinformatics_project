@@ -137,9 +137,11 @@ def load_proteomic_data(filename, target_cols=[], reshape=True):
 
 
 
-def load_rough_proteins(rough_p_filename):
+def load_raw_proteins(rough_p_filename):
     """
     Version : 1.0
+
+    Name History: load_rough_proteins
 
     This function upload the content of a file in a list.
     The format of the input file is defined by the function download_proteins_set. 
