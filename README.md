@@ -73,7 +73,7 @@ At the end of the simulation,  in the working folder will be present this group 
 
 **1.3	Generate the PoGo input file**
 
-    pg.PoGo_input_file('PoGo_input_file.txt',proteomePTM,'Experiment_test')
+    pg.PoGo_input_file('PoGo_input_file.txt',proteomePTM,'Exp_test')
 
 
 ## 2. Generate protein heat map
